@@ -1,0 +1,35 @@
+openapi: '3.0.0'
+info:
+  description: Test
+  version: 1.0.0
+  title: OpenAPI test
+paths:
+  /search:
+    get:
+      x-mojo-to: echo#text
+      description: 'Test it'
+      operationId: search
+      parameters:
+        - in: query
+          name: values
+          schema:
+            type: object
+            properties:
+              q:
+                type: string
+              flags:
+                type: array
+                items:
+                  type: string
+            additionalProperties: false
+            required:
+              - q
+          style: form
+          explode: true
+      responses:
+        '200':
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
