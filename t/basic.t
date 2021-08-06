@@ -6,7 +6,6 @@ use Test::Mojo;
 my $t = Test::Mojo->new('openapi_test');
 
 diag( 'Mojolicious::Plugin::OpenAPI ' . Mojolicious::Plugin::OpenAPI->VERSION );
-diag( 'JSON::Validator::Schema::OpenAPIv3 ' . JSON::Validator::Schema::OpenAPIv3->VERSION );
 
 $t->get_ok('/search')->status_is(400, 'Missing q is bad request' );
 $t->get_ok('/search?q=abc')->status_is(200);
